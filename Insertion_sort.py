@@ -21,6 +21,6 @@ def insertion_sort(array):
               
 array = [6,0,3,5,7,8,4,2,1,15,7,9,5]
 
-array =  insertion_sort(array)
+array = insertion_sort(array)
 
 print(array)
