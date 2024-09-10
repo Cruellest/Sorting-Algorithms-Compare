@@ -53,6 +53,90 @@ def quick_sort(arr):
         right = [x for x in arr if x > pivot]
         return quick_sort(left) + middle + quick_sort(right)
 
+def counting_sort(array):
+    maior = max(array);
+    counting = [0] * (maior + 1)
+    output = [0] * len(array)
+    
+    for i in range(len(array)):
+        counting[array[i]] += 1
+        
+    for i in range(1,maior + 1):
+        counting[i] += counting[i-1]
+        
+    for j in range(len(array)):
+        output[counting[array[j]]-1] = array[j]
+        
+    return output
+
+def construir_maxheap(arr, n, i):
+    # Encontrar maior dentre a raiz
+    largest = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+
+    # Troca e chama recursivamente se a raiz não for a maior
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        construir_maxheap(arr, n, largest)
+
+def heap_sort(arr):
+    n = len(arr)
+
+    # construir max heap
+    for i in range(n // 2 - 1, -1, -1):
+        construir_maxheap(arr, n, i)
+
+    # Extrair elemntos da heap
+    for i in range(n-1, 0, -1):
+        # Mover raiz para o final
+        arr[i], arr[0] = arr[0], arr[i]
+        # Construir heap no array reduzido
+        construir_maxheap(arr, i, 0)
+        
+def insertion_sort(array):
+    size = len(array)
+    ordenado = [array[0]]
+    
+    for i in range(1, size):
+        chave = array[i]
+        inserted = False
+        
+        for j in range(len(ordenado)):
+            
+            if(chave < ordenado[j]):
+                ordenado.insert(j,chave)
+                inserted = True
+                break
+        
+        if not inserted:
+            ordenado.append(chave)
+    
+    return ordenado  
+
+def bubble_sort(array):
+    size = len(array)
+    
+    for j in range(size):
+        swapped = False
+        
+        for i in range(size - j - 1):
+            
+            if(array[i] > array[i+1]):
+                swap = array[i]
+                array[i] = array[i+1]
+                array[i+1] = swap
+                swapped = True
+                
+        if (swapped == False):
+            break
+
 #Main
 numpy.random.seed(2208)
 random.seed(2208)
