@@ -188,7 +188,7 @@ while n < fim+1: #Quantidade Total de Medias
     tempo_quick = []
     tempo_counting = []
 
-    for i in range(10): #Quantidade de Testes Por Algoritmo
+    for i in range(rtp): #Quantidade de Testes Por Algoritmo
         
         array = numpy.random.randint(0,random.randint(0,n**2),n)
         array2 = array.copy()
@@ -223,7 +223,7 @@ while n < fim+1: #Quantidade Total de Medias
         tempo_quick.append(tempo_fim_quick - tempo_inicio_quick)
         
         tempo_inicio_counting = time.perf_counter()
-        holder = counting_sort(array6)
+        array6 = counting_sort(array6)
         tempo_fim_counting = time.perf_counter()
         tempo_counting.append(tempo_fim_counting - tempo_inicio_counting)
         
@@ -250,7 +250,6 @@ while n < fim+1: #Quantidade Total de Medias
     
     #Step
     n = n+stp
-    
     
 #DataFrame do panda (Alterar nomes para fim de apresentação)
 df = pd.DataFrame({
@@ -281,13 +280,12 @@ plt.ylabel('valor')
 
 plt.show()
 
+
+
 #Invertido
-
-
 print(f"\n\n[[REVERSE]]")
 print(f"{'n':8}\tBubble\t\tInsertion\tMerge\t\tHeap\t\tQuick\t\tCounting")
 print("------------------------------------------------------------------------------------------------------------")
-
 
 n = inc
 
@@ -333,7 +331,7 @@ while n < fim+1:
     tempo_quick = (tempo_fim_quick - tempo_inicio_quick)
         
     tempo_inicio_counting = time.perf_counter()
-    holder = counting_sort(array6)
+    array6 = counting_sort(array6)
     tempo_fim_counting = time.perf_counter()
     tempo_counting = (tempo_fim_counting - tempo_inicio_counting)
 
@@ -432,7 +430,7 @@ while n < fim+1:
     tempo_quick = (tempo_fim_quick - tempo_inicio_quick)
         
     tempo_inicio_counting = time.perf_counter()
-    holder = counting_sort(array6)
+    array6 = counting_sort(array6)
     tempo_fim_counting = time.perf_counter()
     tempo_counting = (tempo_fim_counting - tempo_inicio_counting)
 
@@ -473,7 +471,7 @@ sns.lineplot(data=df,x='n',y='Counting Sort',label='Counting Sort')
 #Print Plot
 plt.xticks(n_valores)
 
-plt.title("Reverse Array")
+plt.title("Sorted Array")
 plt.xlabel('n')
 plt.ylabel('valor')
 
