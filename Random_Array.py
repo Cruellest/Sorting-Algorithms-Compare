@@ -1,4 +1,3 @@
-import math
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -190,7 +189,7 @@ while n < fim+1: #Quantidade Total de Medias
 
     for i in range(rtp): #Quantidade de Testes Por Algoritmo
         
-        array = numpy.random.randint(0,random.randint(0,n**2),n)
+        array = numpy.random.randint(0,random.randint(0,n),n)
         array2 = array.copy()
         array3 = array.copy()
         array4 = array.copy()
@@ -289,6 +288,13 @@ print("-------------------------------------------------------------------------
 
 n = inc
 
+array = []
+array2 = array.copy()
+array3 = array.copy()
+array4 = array.copy()
+array5 = array.copy()
+array6 = array.copy()
+
 n_valores.clear()
 bubble_sortVec.clear()
 insertion_sortVec.clear()
@@ -347,7 +353,7 @@ while n < fim+1:
 
     n += stp
 
-# print(len(n_valores) ,len(bubble_sortVec), len(insertion_sortVec),len(merge_sortVec),len(heap_sortVec),len(quick_sortVec),len(counting_sortVec))
+#print(len(n_valores) ,len(bubble_sortVec), len(insertion_sortVec),len(merge_sortVec),len(heap_sortVec),len(quick_sortVec),len(counting_sortVec))
     
 
 df = pd.DataFrame({
@@ -378,8 +384,6 @@ plt.ylabel('valor')
 
 plt.show()
 
-
-
 #Ordenado
 print(f"\n\n[[SORTED]]")
 print(f"{'n':8}\tBubble\t\tInsertion\tMerge\t\tHeap\t\tQuick\t\tCounting")
@@ -387,6 +391,13 @@ print("-------------------------------------------------------------------------
 
 
 n = inc
+
+array = []
+array2 = array.copy()
+array3 = array.copy()
+array4 = array.copy()
+array5 = array.copy()
+array6 = array.copy()
 
 n_valores.clear()
 bubble_sortVec.clear()
